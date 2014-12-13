@@ -24,11 +24,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func convertYears(sender: UIButton) {
-        var years = yearsTextField.text.toInt()!
-        let dogYears = 7
+        var years = Double(yearsTextField.text.toInt()!)
+        let dogYears1 = 10.5
+        let dogYears2 = 4.0
+        
+        var oldYears = years - 2;
+        
+        
+        oldYears = (oldYears > 0) ? oldYears : 0
+        years = (years <= 2 ) ? years : 2
+        
         
         resultLabel.hidden = false
-        resultLabel.text = "\(years * dogYears) Dog Years"
+        resultLabel.text = "\(years * dogYears1 + oldYears * dogYears2) Dog Years"
         
         yearsTextField.resignFirstResponder()
     }
